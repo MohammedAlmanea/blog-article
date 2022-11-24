@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "test",
-    "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess 'node ./dist/server.js'"
+    "start": "node src/server.ts",
+    "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",
+    "test": "export ENV=test && npx tsc && db-migrate --env test up && jasmine && db-migrate --env test reset",
+    "tsc": "tsc"
   },
   "author": "Mohammed",
   "license": "ISC",
